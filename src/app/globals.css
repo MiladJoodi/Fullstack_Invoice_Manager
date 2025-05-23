@@ -1,0 +1,432 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* styles import */
+@import "../styles/Home.css";
+@import "../styles/Loader.css";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* Variable */
+    --color-primary: #007bff;
+    --color-secondary: orangered;
+    --color-orange: #ff7722;
+    --color-text: #3f3f46;
+    --color-dark-blue: #0a1930;
+    --light-blue: #1f93ff;
+    --color-dark: #1f2937;
+    --color-grey: #eee;
+    --color-white: #fff;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --color-primary: #007bff;
+    --color-secondary: orangered;
+    --color-orange: #ff7722;
+    --color-dark-blue: #0a1930;
+    --light-blue: #1f93ff;
+    --color-text: #fff; /* Inverted to light */
+    --color-dark: #fff; /* Inverted to light */
+    --color-grey: #1f2937; /* Inverted to dark */
+    --color-white: #0d131b; /* Inverted to dark */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-grey);
+}
+
+section {
+  width: 100%;
+  padding: 40px 0;
+}
+
+/* Heading */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+
+.animate-text {
+  color: white;
+  display: inline-block;
+  text-transform: uppercase;
+  line-height: 1.3;
+  text-align: center;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.animate-text span {
+  transition: color 0.5s, transform 0.5s, background-color 0.5s;
+}
+
+.animate-text span.activeText {
+  color: orangered;
+  animation: slideIn 1s ease;
+  background-color: #eee;
+  text-decoration: none;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.heading {
+  /* display: block; */
+  position: relative;
+}
+
+.heading::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-width: 0 0 5px 5px;
+  opacity: 0;
+  transition: all .3s;
+}
+
+.heading:hover::before {
+  left: -8px;
+  bottom: -8px;
+  opacity: 1;
+} 
+
+.heading::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-width: 5px 5px 0 0;
+  opacity: 0;
+  transition: all .3s;
+}
+
+.heading:hover::after {
+  top: -8px;
+  right: -8px;
+  opacity: 1;
+}
+
+
+
+/* p {
+  color: var(--color-text);
+} */
+
+/* Center All */
+.--center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+a {
+  color: var(--color-primary);
+}
+a:hover {
+  color: var(--color-secondary);
+  transition: all ease 0.2s;
+}
+
+/* Define the keyframes for the cursor animation */
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: flicker 0.5s infinite;
+  margin-bottom: 4px;
+}
+
+@layer components {
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .card {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  /* .pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .pagination .page-num {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: normal;
+    color: #333;
+    border: 1px solid #333;
+    margin: 2px;
+  }
+
+  .pagination .page-num:hover {
+    color: #fff;
+    background-color: #1f93ff;
+  }
+  .activePage {
+    color: #fff;
+    background-color: #1f93ff;
+    height: 100%;
+  } */
+
+  .pagination {
+    @apply list-none flex justify-center items-center mt-4 mb-4 text-sm space-x-1;
+  }
+
+  .pagination .page-num {
+    @apply px-4 py-2 cursor-pointer rounded-md text-gray-700 border border-gray-700 hover:bg-blue-600 hover:text-white dark:text-white dark:border-gray-300 ;
+  }
+
+  .pagination .page-num.activePage {
+    @apply bg-blue-600 text-white;
+  }
+
+  .active {
+    position: relative;
+    color: orangered;
+  }
+
+  .active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+  }
+}
+
+@layer utilities {
+  /* Grid */
+  .--grid-15 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    row-gap: 5px;
+    column-gap: 5px;
+  }
+  .--grid-25 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    row-gap: 1rem;
+    column-gap: 1rem;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    row-gap: 1rem;
+    column-gap: 1rem;
+  }
+
+  .recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    row-gap: 2rem;
+    column-gap: 2rem;
+  }
+
+  .post-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  .flex-start {
+    @apply flex justify-start items-center;
+  }
+
+  .flex-col-mobile {
+    display: flex;
+  }
+
+  .glass {
+    @apply bg-gray-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100;
+  }
+
+  .show-on-desktop {
+    display: block;
+  }
+  .show-on-mobile {
+    display: none;
+  }
+
+  .border-light {
+    @apply border-b-[1px] border-white pb-1;
+  }
+  .border-dark {
+    @apply border-b-[1px] border-gray-400 pb-1;
+  }
+  .border-t-light {
+    @apply border-t-[1px] border-white py-1;
+  }
+  .border-t-dark {
+    @apply border-t-[1px] border-gray-200 py-1;
+  }
+
+  .footer-links {
+    @apply text-white dark:text-[#1f2937];
+  }
+
+  .contact {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .contact .i {
+    color: #eee;
+    font-size: 25px;
+    border: 2px solid orangered;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1;
+  }
+  
+  .contact .i:hover {
+    transform: translateY(-1rem);
+    z-index: 1;
+  }
+
+  @media screen and (max-width: 800px) {
+    .show-on-desktop {
+      display: none;
+    }
+    .show-on-mobile {
+      display: block;
+    }
+    .flex-col-mobile {
+      flex-direction: column;
+    }
+  }
+}
+

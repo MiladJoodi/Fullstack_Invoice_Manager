@@ -1,0 +1,147 @@
+.wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9;
+}
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+.spinner {
+  display: block;
+  z-index: 9999;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+}
+[class^="ball-"] {
+  position: absolute;
+  display: block;
+  margin-left: 18px;
+  width: 8px;
+  height: 8px;
+  border-radius: 6px;
+  transition: all 0.5s;
+  animation: circleRotate 4s both infinite;
+  transform-origin: 0 250% 0;
+}
+@keyframes circleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1440deg);
+  }
+}
+.ball-1 {
+  z-index: -1;
+  background-color: #0982e4;
+  animation-timing-function: cubic-bezier(0.5, 0.3, 0.9, 0.9);
+}
+.ball-2 {
+  z-index: -2;
+  background-color: #0ca1e7;
+  animation-timing-function: cubic-bezier(0.5, 0.6, 0.9, 0.9);
+}
+.ball-3 {
+  z-index: -3;
+  background-color: #00bcd4;
+  animation-timing-function: cubic-bezier(0.5, 0.9, 0.9, 0.9);
+}
+.ball-4 {
+  z-index: -4;
+  background-color: #ff7a28;
+  animation-timing-function: cubic-bezier(0.5, 1.2, 0.9, 0.9);
+}
+.ball-5 {
+  z-index: -5;
+  background-color: #ff7119;
+  animation-timing-function: cubic-bezier(0.5, 1.5, 0.9, 0.9);
+}
+.ball-6 {
+  z-index: -6;
+  background-color: #ff32cf;
+  animation-timing-function: cubic-bezier(0.5, 1.8, 0.9, 0.9);
+}
+.ball-7 {
+  z-index: -7;
+  background-color: #f131de;
+  animation-timing-function: cubic-bezier(0.5, 2.1, 0.9, 0.9);
+}
+.ball-8 {
+  z-index: -8;
+  background-color: #f404e0;
+  animation-timing-function: cubic-bezier(0.5, 2.4, 0.9, 0.9);
+}
+
+
+/* gpt loader */
+/* HTML: <div class="loader"></div> */
+
+.lds-ellipsis,
+.lds-ellipsis div {
+  box-sizing: border-box;
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33.33333px;
+  width: 10.33333px;
+  height: 10.33333px;
+  border-radius: 50%;
+  background: currentColor;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+

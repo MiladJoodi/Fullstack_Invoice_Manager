@@ -33,8 +33,10 @@ For database handling, the app uses **Mongoose** to interact with MongoDB.
 - 🔍 Debounced search using `use-debounce`
 - 📄 Pagination via `react-paginate`
 - ✅ Form validation with `@hookform/resolvers` and **Zod**
-- 📧 Email sending with **Nodemailer** and dynamic templates
+- 🎨 Beautiful and accessible components with **shadcn/ui**
+- 💨 Styling with **Tailwind CSS**
 - ♻️ Utility classes managed with `clsx` and `tailwind-merge`
+
 
 This project is a great starting point for anyone looking to build modern fullstack applications with real-world features using **Next.js 14**.
 > 📺 Inspired by this awesome [YouTube](https://www.youtube.com/watch?v=P-8ZKCEQioY&t=1796s)
